@@ -32,7 +32,7 @@ class Users(Resource):
             data.to_csv('users.csv', index=False)
             return {'message': 'Record successfully deleted.'}, 200
         else:
-            return {'message': 'Record not found.'}, 404
+            return {'message': 'Record not found.'}, 400
 
 class Cities(Resource):
     def get(self):
