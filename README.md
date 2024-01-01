@@ -123,4 +123,13 @@ Bu Python script'i, requests kütüphanesini kullanarak JSONPlaceholder adlı bi
 -     #HTTP DELETE isteğinde bir hata varsa, hata kodunu ve mesajını yazdırır.
 - Bu script, bir API ile etkileşimde bulunarak alınan yanıtları işleyip, bu yanıtları CSV dosyalarına yazarak temel HTTP işlemlerini gösterir.
 
+**Lorem Ipsum Görselleri**
+
 ![LoremIpsumDesign](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/8c26f3e4-7cc3-4c99-aa86-4de33a88b1f3)
+![1_ddyz8qnOhFeFKY-_c3tleQ](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/36cf05ed-7c73-4c5b-b6e4-ae72df88a532)
+![5294e6d0-53ed-4a4a-a350-7eaeab72ac93](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/f7d63aca-f8f4-459f-bff1-899ee9b3a02e)
+![lorem-ipsum-nedir-1024x443](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/8f2578c5-b6a0-4fe9-825e-53e179d9da8b)
+
+**HAVELSAN**
+
+![Havelsan_logo svg](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/f1e37b50-6e17-4319-b3e3-f1c6e0387d4a)
