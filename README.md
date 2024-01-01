@@ -132,7 +132,82 @@ Bu Python script'i, requests kütüphanesini kullanarak JSONPlaceholder adlı bi
 
 ## (OpenSource3) Proje 3: gunicorn ve nginx servislerinin entegre edilmesi
 - Uygulamanın servis haline getirilmesi
+- Gunicorn ve Nginx'i birlikte kullanmak, Python uygulamanızı daha verimli ve güvenli bir şekilde dağıtmak için yaygın bir yaklaşımdır. Gunicorn, Python uygulamanızı çalıştırmak için kullanılan bir WSGI sunucusudur, Nginx ise bu uygulamaya gelen HTTP isteklerini yöneten bir web sunucusudur.
 
-**HAVELSAN**
+- İşte Gunicorn ve Nginx'in birlikte kullanılması için temel adımlar:
+
+***1. Gunicorn Kurulumu:***
+- İlk olarak, Gunicorn'u projenize ekleyin. Projede kullanılan sanal ortamda şu komutu kullanabilirsiniz:
+- `pip install gunicorn`
+
+***2.Gunicorn ile Uygulamayı Çalıştırma:***
+- Python uygulamanızı Gunicorn ile başlatmak için terminalde şu komutu kullanabilirsiniz:
+- `gunicorn -w 4 -b 0.0.0.0:8000 app:app`
+- Bu komut, uygulamanızı app adlı modüldeki app adlı nesne üzerinden çalıştıracaktır. -w parametresi, çalışan işçi (worker) sayısını belirtir.
+
+***3. Nginx Kurulumu:***
+- Nginx'i kurmak için sisteminize uygun bir komut kullanabilirsiniz. Örneğin, Ubuntu için:
+- `sudo apt-get update`
+- `sudo apt-get install nginx`
+
+***4. Nginx Konfigürasyonu:***
+Nginx konfigürasyon dosyanızı açın ve aşağıdaki gibi düzenleyin:
+- `server {
+    listen 80;
+    server_name your_domain.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /static {
+        alias /path/to/your/static/folder;
+    }
+
+    location /media {
+        alias /path/to/your/media/folder;
+    }}`
+- Bu konfigürasyon, Nginx'in gelen HTTP isteklerini Gunicorn üzerinde çalışan Python uygulamasına yönlendirmesini sağlar. proxy_pass kısmında Gunicorn'un çalıştığı adres ve portu belirtmelisiniz.
+
+***5. Nginx'i Yeniden Başlatma:***
+- Konfigürasyonunuzu değiştirdikten sonra Nginx'i yeniden başlatmalısınız:
+- `sudo service nginx restart`
+- Bu adımları takip ederek, Gunicorn ve Nginx'i bir arada kullanabilir ve Python uygulamanızı daha etkili bir şekilde dağıtabilirsiniz. Unutmayın ki, gerçek bir uygulama için bu adımları güvenlik önlemleri ve performans iyileştirmeleriyle birleştirmeniz önemlidir.
+![Screenshot-from-2022-06-07-13-54-06](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/788f6f9c-6ec3-4a69-b079-2f2a37f0245e)
+
+## (OpenSource4) Proje 4: Docker
+- Eğer Python uygulamasını Docker üzerinde çalıştırmak istiyorsanız, aşağıdaki adımları takip edebilirsiniz:
+- ***1. İlk olarak, projenizin bulunduğu dizine gidin ve bir `Dockerfile` oluşturun.***
+- #Use the official Python image as the base image
+- `FROM python:3.8`
+
+- #Set the working directory in the container
+- `WORKDIR /app`
+
+- #Copy the current directory contents into the container
+- `COPY . /app`
+
+- #Install any needed packages specified in requirements.txt
+- `RUN pip install -r requirements.txt`
+
+- #Define environment variable
+- `ENV NAME World`
+
+- #Run app.py when the container launches
+- `CMD ["python", "app.py"]`
+
+- ***2. Ardından, Docker imajınızı oluşturun:***
+- `docker build -t my-python-app .`
+- Bu komut, bulunduğunuz dizindeki Dockerfile kullanılarak `my-python-app` adında bir Docker imajı oluşturur.
+
+- ***3. Docker imajını çalıştırın:***
+- `docker run my-python-app`
+- Bu adımları takip ederek, Python uygulamanızı Docker üzerinde çalıştırabilirsiniz. Ayrıca, projenizin bağımlılıklarını belirttiğiniz bir `requirements.txt` dosyası varsa, bu dosyayı Dockerfile içinde kullanabilir ve bağımlılıkların Docker imajına yüklenmesini sağlayabilirsiniz.
+![what-is-docker](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/0d5f32fb-33b1-44a6-ac21-ee1bb3097a2b)
+
+# **HAVELSAN**
 
 ![Havelsan_logo svg](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/f1e37b50-6e17-4319-b3e3-f1c6e0387d4a)
