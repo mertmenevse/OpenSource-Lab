@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: 
+      context: /home/ubuntu/OpenSource-Lab/OpenSource4  # Dockerfile'ın bulunduğu dizin
+    command: python3 APIsorgu.py -h 0.0.0.0
+    volumes:
+      - /home/ubuntu/OpenSource-Lab/OpenSource4:/usr/src/app
+    ports:
+      - 5001:5000
+
