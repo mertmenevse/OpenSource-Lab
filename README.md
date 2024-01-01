@@ -92,7 +92,7 @@ Bu Python script'i, requests kütüphanesini kullanarak JSONPlaceholder adlı bi
 - `if response_get.status_code == 200:`
 -     `data_get = response_get.json()`
 -     #JSON verisini işleme ve CSV dosyasına yazma işlemleri burada yapılır.
-- else:
+- `else`:
 -     #HTTP GET isteğinde bir hata varsa, hata kodunu ve mesajını yazdırır.
 
 ***4. HTTP POST İsteği Gönderilir:***
