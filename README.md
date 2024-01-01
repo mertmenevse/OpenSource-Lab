@@ -130,6 +130,9 @@ Bu Python script'i, requests kütüphanesini kullanarak JSONPlaceholder adlı bi
 ![5294e6d0-53ed-4a4a-a350-7eaeab72ac93](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/f7d63aca-f8f4-459f-bff1-899ee9b3a02e)
 ![lorem-ipsum-nedir-1024x443](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/8f2578c5-b6a0-4fe9-825e-53e179d9da8b)
 
+## (OpenSource3) Proje 3: gunicorn ve nginx servislerinin entegre edilmesi
+- Uygulamanın servis haline getirilmesi
+
 **HAVELSAN**
 
 ![Havelsan_logo svg](https://github.com/mertmenevse/OpenSource-Lab/assets/78734566/f1e37b50-6e17-4319-b3e3-f1c6e0387d4a)
